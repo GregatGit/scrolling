@@ -10,12 +10,12 @@ const style = {
 
 const InfiniteScrollComponent = () => {
   const amount = 15
-  const limit = 80
+  const limit = 50
   const [items, setItems] = useState(Array.from({ length: amount }))
   const [message, setMessage] = useState('Loading...')
 
   const fetchMoreData = () => {
-    if (items.length >= 80) {
+    if (items.length >= limit) {
       setMessage('...all done...')
       return
     }
