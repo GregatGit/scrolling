@@ -1,5 +1,6 @@
 {
   "name": "scrolling",
+  "author": "Greg Duncan",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
