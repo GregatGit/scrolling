@@ -30,8 +30,6 @@ const InfiniteScrollComponent = () => {
 
   return (
     <div>
-      <h1>demo: react-infinite-scroll-component</h1>
-      <hr />
       <InfiniteScroll
         dataLength={items.length}
         next={fetchMoreData}
