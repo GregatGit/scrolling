@@ -9,14 +9,21 @@ const style = {
 }
 
 const InfiniteScrollComponent = () => {
-  const [items, setItems] = useState(Array.from({ length: 20 }))
+  const amount = 15
+  const limit = 80
+  const [items, setItems] = useState(Array.from({ length: amount }))
+  const [message, setMessage] = useState('Loading...')
 
   const fetchMoreData = () => {
+    if (items.length >= 80) {
+      setMessage('...all done...')
+      return
+    }
     // a fake async api call like which sends
     // 20 more records in 1.5 secs
     setTimeout(() => {
       setItems(
-        items.concat(Array.from({ length: 20 })),
+        items.concat(Array.from({ length: amount })),
       )
     }, 1500)
   }
@@ -29,7 +36,7 @@ const InfiniteScrollComponent = () => {
         dataLength={items.length}
         next={fetchMoreData}
         hasMore={true}
-        loader={<h4>Loading...</h4>}
+        loader={<h4>{message}</h4>}
       >
         {items.map((i, index) => (
           <div style={style} key={index}>
