@@ -30,10 +30,7 @@ export function calculateDiv(style) {
   let borderPx = 0
   if (/px/.test(border)){
     const result = border.match(/px/)
-    let num = Number(border.slice(0, result.index))
-    borderPx = num * 2
+    borderPx = Number(border.slice(0, result.index))
   }  
-  let total = height + (padding * 2) + borderPx
-
-  return total
+  return height + (padding * 2) + (borderPx * 2)
 }
