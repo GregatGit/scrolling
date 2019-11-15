@@ -24,3 +24,16 @@ export function useWindowDimensions() {
 
   return windowDimensions
 }
+
+export function calculateDiv(style) {
+  let { padding, border, height } = style
+  let borderPx = 0
+  if (/px/.test(border)){
+    const result = border.match(/px/)
+    let num = Number(border.slice(0, result.index))
+    borderPx = num * 2
+  }  
+  let total = height + (padding * 2) + borderPx
+
+  return total
+}
