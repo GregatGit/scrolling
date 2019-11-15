@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { useWindowDimensions } from './helpers'
 
 const style = {
   height: 30,
@@ -9,6 +10,8 @@ const style = {
 }
 
 const InfiniteScrollComponent = () => {
+  const { width, height } = useWindowDimensions()
+  console.log(width, height)
   const amount = 15
   const limit = 50
   const [items, setItems] = useState(Array.from({ length: amount }))
